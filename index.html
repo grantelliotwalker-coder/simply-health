@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>My Blog - Home</title>
+    <link rel="stylesheet" href="Styles.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500&display=swap" />
+
+
+</head>
+<body>
+    <header class="top-bar">
+        <div class="logo">SIMPLY HEALTH</div>
+        <nav class="top-nav">
+            <a href="index.html" aria-current="page">Home</a>
+            <a href="posts.html">Posts</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </nav>
+        <button class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <aside class="side-nav" id="sideNav">
+        <a href="index.html">Home</a>
+        <a href="posts.html">Posts</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </aside>
+
+    <main class="content">
+        <section class="post">
+            <h1>Welcome to my Website!</h1>
+            <p class="meta">A simple HTML &amp; CSS site</p>
+            <p>
+                This is the home page. When you are ready, click below to see
+                the latest posts on the blog.
+            </p>
+            <p>
+                <a class="primary-button" href="posts.html">View blog posts</a>
+            </p>
+        </section>
+    </main>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const sideNav = document.getElementById('sideNav');
+
+        hamburger.addEventListener('click', () => {
+            sideNav.classList.toggle('open');
+        });
+    </script>
+</body>
+</html>

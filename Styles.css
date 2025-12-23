@@ -1,0 +1,180 @@
+﻿/* Theme variables */
+
+:root {
+    --bg: #EAE0D5; /* page background */
+    --surface: #F7A399; /* cards / posts */
+    --text: #FFFFFF; /* main text */
+    --muted: #FFFFFF; /* meta text */
+    --accent: #000000; /* , logo, active link */
+    --logo: #000000; /* , logo, active link */
+    --button: #fb3741; /* buttons, logo, active link */
+    --accent-soft: #e71d36; /* hover color */
+    --header: #d1e5ed; /* top bar + side nav */
+}
+
+/* Global */
+
+body {
+    margin: 0;
+    font-family: "Open Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+}
+
+
+/* Top bar */
+
+.top-bar {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding-top: 5rem; /* big space at the top */
+    padding-right: 1.5rem;
+    padding-bottom: 0.5rem; /* small space at the bottom */
+    padding-left: 1.5rem;
+    background-color: var(--bg);
+    border-bottom: 1px solid #2a3a4a;
+}
+
+
+/* Make nav sit in the middle area */
+.top-nav {
+    flex: 1; /* take up the space between logo and hamburger */
+    display: flex;
+    justify-content: center; /* centre links inside that space */
+}
+
+.logo {
+    font-family: "Roboto", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-weight: 500; /* Medium */
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--logo);
+}
+
+.top-nav a {
+    color: var(--text);
+    text-decoration: none;
+    margin-left: 1rem;
+    font-size: 0.95rem;
+}
+
+    .top-nav a[aria-current="page"] {
+        color: var(--accent);
+    }
+
+    .top-nav a:hover {
+        color: var(--accent);
+    }
+
+/* Hamburger button (for small screens) */
+
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 18px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+    .hamburger span {
+        display: flex;
+        height: 3px;
+        background-color: var(--text);
+        border-radius: 2px;
+    }
+
+/* Layout */
+
+.content {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.post {
+    background-color: var(--surface);
+    padding: 1.5rem;
+    border-radius: 6px;
+}
+
+    .post h1 {
+        margin-top: 0;
+        color: var(--accent);
+    }
+
+.meta {
+    font-size: 0.85rem;
+    color: var(--muted);
+}
+
+/* Primary button */
+
+.primary-button {
+    display: inline-block;
+    background-color: var(--button);
+    color: var(--bg);
+    text-decoration: none;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+    .primary-button:hover {
+        background-color: var(--accent-soft);
+    }
+
+/* Side nav (left drawer) */
+
+.side-nav {
+    position: fixed;
+    top: 0;
+    left: -240px;
+    width: 220px;
+    height: 100vh;
+    background-color: var(--surface);
+    padding-top: 4rem;
+    box-shadow: 2px 0 6px rgba(0, 0, 0, 0.6);
+    transition: left 0.25s ease;
+    z-index: 1000;
+}
+
+    .side-nav a {
+        display: block;
+        padding: 0.75rem 1.25rem;
+        color: var(--accent);
+        text-decoration: none;
+        font-size: 0.95rem;
+    }
+
+        .side-nav a:hover {
+            background-color: var(--surface);
+        }
+
+    /* When open, slide in */
+
+    .side-nav.open {
+        left: 0;
+    }
+
+/* Responsive */
+
+@media (max-width: 768px) {
+    .top-nav {
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .content {
+        margin-top: 1rem;
+    }
+}
