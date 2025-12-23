@@ -1,228 +1,229 @@
-﻿/* Theme variables */
+﻿/* Theme variables */ /* Section comment describing what this block is for */
 
-:root {
-    --bg: #EAE0D5; /* page background */
-    --surface: #F7A399; /* cards / posts */
-    --text: #FFFFFF; /* main text */
-    --muted: #FFFFFF; /* meta text */
-    --accent: #000000; /* , logo, active link */
-    --black: #000000; /*/Black*/
-    --logo: #000000; /* , logo, active link */
-    --button: #fb3741; /* buttons, logo, active link */
-    --accent-soft: #e71d36; /* hover color */
-    --header: #d1e5ed; /* top bar + side nav */
+:root { /* :root = top-level element; good place to store global variables */
+    --bg: #EAE0D5; /* page background */ /* Custom property for overall page background color */
+    --surface: #F7A399; /* cards / posts */ /* Color for card/post backgrounds */
+    --text: #FFFFFF; /* main text */ /* Main text color if you want light text */
+    --muted: #FFFFFF; /* meta text */ /* Lighter text color for meta/info text */
+    --accent: #000000; /* , logo, active link */ /* Accent color, used for important text/links */
+    --black: #000000; /*/Black*/ /* Plain black color, stored as a variable */
+    --logo: #000000; /* , logo, active link */ /* Color used specifically for the logo text */
+    --button: #fb3741; /* buttons, logo, active link */ /* Main button background color */
+    --accent-soft: #e71d36; /* hover color */ /* Slightly different red for hover states */
+    --header: #d1e5ed; /* top bar + side nav */ /* Color intended for header/side nav if needed */
 }
 
-/* Global */
+/* Global */ /* Section for global (page‑wide) styles */
 
-html {
-    font-size: 18px; /* try 18–20px; 1rem = 18px now */
+html { /* Root HTML element */
+    font-size: 18px; /* try 18–20px; 1rem = 18px now */ /* Sets base font size so 1rem = 18px */
 }
 
-body {
-    margin: 0;
+body { /* Body of the page (all visible content) */
+    margin: 0; /* Removes default browser margin around the page */
     font-family: "Open Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    background-color: var(--bg);
-    color: var(--black);
-    font-size: 1rem;
+    /* Sets the default font stack for all text */
+    background-color: var(--bg); /* Uses bg variable as page background color */
+    color: var(--black); /* Sets default text color to black */
+    font-size: 1rem; /* Body text size = 1 × root size (18px) */
 }
 
 
-/* Top bar */
+/* Top bar */ /* Section for the header/navigation bar */
 
-.top-bar {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    padding-top: 5rem; /* big space at the top */
-    padding-right: 1.5rem;
-    padding-bottom: 0.5rem; /* small space at the bottom */
-    padding-left: 1.5rem;
-    background-color: var(--bg);
-    border-bottom: 1px solid #2a3a4a;
+.top-bar { /* Container for logo, nav links, and hamburger */
+    display: flex; /* Uses flexbox to lay out children horizontally */
+    align-items: flex-end; /* Aligns items to the bottom of the top bar */
+    justify-content: space-between; /* Pushes logo left and hamburger/nav right */
+    padding-top: 5rem; /* big space at the top */ /* Large top padding to drop header down */
+    padding-right: 1.5rem; /* Right padding inside the bar */
+    padding-bottom: 0.5rem; /* small space at the bottom */ /* Small bottom padding */
+    padding-left: 1.5rem; /* Left padding inside the bar */
+    background-color: var(--bg); /* Same background as page for seamless look */
+    border-bottom: 1px solid #2a3a4a; /* Thin bottom border line under the bar */
 }
 
 
 /* Make nav sit in the middle area */
-.top-nav {
-    flex: 1; /* take up the space between logo and hamburger */
-    display: flex;
-    justify-content: center; /* centre links inside that space */
+.top-nav { /* Container for the top navigation links */
+    flex: 1; /* take up the space between logo and hamburger */ /* Lets nav grow to fill middle space */
+    display: flex; /* Lays out nav links in a row */
+    justify-content: center; /* centre links inside that space */ /* Centers the links horizontally */
 }
 
-.logo {
+.logo { /* Styles for the SIMPLY HEALTH logo link */
     font-family: "Roboto", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    font-weight: 500; /* Medium */
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: var(--logo);
-    text-decoration: none;
+    /* Uses Roboto (or fallbacks) for logo text */
+    font-weight: 500; /* Medium */ /* Medium font weight (overridden by bold below) */
+    font-size: 2.5rem; /* Large font size for the logo */
+    font-weight: bold; /* Makes logo text bold */
+    color: var(--logo); /* Uses logo color variable (black) */
+    text-decoration: none; /* Removes underline from the logo link */
 }
 
-.top-nav a {
-    color: var(--black);
-    text-decoration: none;
-    margin-left: 1rem;
-    font-size: 0.95rem;
+.top-nav a { /* Styles for each top navigation link */
+    color: var(--black); /* Link text color set to black */
+    text-decoration: none; /* Removes default underline */
+    margin-left: 1rem; /* Adds space between each nav link */
+    font-size: 0.95rem; /* Slightly smaller than base font size */
 }
 
-    .top-nav a[aria-current="page"] {
-        color: var(--accent);
+    .top-nav a[aria-current="page"] { /* Style for the link representing current page */
+        color: var(--accent); /* Uses accent color to highlight current page link */
     }
 
-    .top-nav a:hover {
-        color: var(--accent);
+    .top-nav a:hover { /* Hover state for nav links */
+        color: var(--accent); /* Changes color on hover for feedback */
     }
 
 /* Hamburger button (for small screens) */
 
-.hamburger {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 28px;
-    height: 20px;
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
+.hamburger { /* Button that shows three lines on mobile */
+    display: flex; /* Uses flexbox for vertical stacking of spans */
+    flex-direction: column; /* Stacks the three lines vertically */
+    justify-content: space-between; /* Even spacing between the lines */
+    width: 28px; /* Overall width of the hamburger icon */
+    height: 20px; /* Overall height of the hamburger icon */
+    background: none; /* Removes default button background */
+    border: none; /* Removes default button border */
+    padding: 0; /* Removes default button padding */
+    cursor: pointer; /* Shows pointer cursor when hovering */
 }
 
 
 /* the three lines */
-.top-bar .hamburger span {
-    display: block;
-    width: 100%;
-    height: 3px;
-    background-color: #000000; /* solid black */
-    border-radius: 2px;
+.top-bar .hamburger span { /* Each of the three horizontal lines */
+    display: block; /* Makes span behave like a block element */
+    width: 100%; /* Line stretches to full button width */
+    height: 3px; /* Thickness of each line */
+    background-color: #000000; /* solid black */ /* Line color set to solid black */
+    border-radius: 2px; /* Slight rounding on line corners */
 }
 
 /* Layout */
 
-.content {
-    max-width: 900px;
-    margin: 2rem auto;
-    padding: 0 1rem;
-    text-decoration: none;
+.content { /* Main content wrapper */
+    max-width: 900px; /* Limits content width for better readability */
+    margin: 2rem auto; /* 2rem top/bottom margin, centered horizontally */
+    padding: 0 1rem; /* Horizontal padding inside the content area */
+    text-decoration: none; /* Ensures no unwanted text decoration inside */
 }
 
-.post {
-    background-color: var(--surface);
-    padding: 1.5rem;
-    border-radius: 6px;
-    text-decoration: none;
-    text-align: center;
-    margin-bottom: 1.5rem; /* space between boxes */
+.post { /* Card-style container for a post or hero section */
+    background-color: var(--surface); /* Uses surface color for the card background */
+    padding: 1.5rem; /* Inner spacing around content in the card */
+    border-radius: 6px; /* Slightly rounded corners of the card */
+    text-decoration: none; /* Removes text decoration if used on links */
+    text-align: center; /* Centers all text inside the post card */
+    margin-bottom: 1.5rem; /* space between boxes */ /* Space below card for stacking */
 }
 
-    .post h1 a {
-        color: var(--black); /* or #000000 */
-        text-decoration: none; /* remove underline */
+    .post h1 a { /* If the post title itself is a link */
+        color: var(--black); /* or #000000 */ /* Title link color set to black */
+        text-decoration: none; /* remove underline */ /* Removes underline from the title link */
     }
 
-    .post h1 {
-        margin-top: 0;
-        color: var(--accent);
-        text-decoration: none;
+    .post h1 { /* Post title heading */
+        margin-top: 0; /* Removes extra top margin on the heading */
+        color: var(--accent); /* Uses accent color for the heading text */
+        text-decoration: none; /* Ensures heading text has no decoration */
     }
 
-.meta {
-    font-size: 0.85rem;
-    color: var(--muted);
-    text-decoration: none;
+.meta { /* Meta text below titles, like date/author */
+    font-size: 0.85rem; /* Slightly smaller text size */
+    color: var(--muted); /* Uses muted color for low‑priority info */
+    text-decoration: none; /* Keeps meta text un-underlined */
 }
 
 /* Primary button */
 
-.primary-button {
-    display: inline-block;
-    background-color: var(--button);
-    color: var(--bg);
-    text-decoration: none;
-    border: none;
-    padding: 0.75rem 1.5rem;
-    border-radius: 4px;
-    font-size: 1rem;
-    cursor: pointer;
+.primary-button { /* Styles for the main call‑to‑action button */
+    display: inline-block; /* Allows padding and margin like a block, but inline */
+    background-color: var(--button); /* Uses button color variable as background */
+    color: var(--bg); /* Button text color set to page background (light) */
+    text-decoration: none; /* Removes underline if used on an <a> tag */
+    border: none; /* No border outline */
+    padding: 0.75rem 1.5rem; /* Vertical and horizontal padding inside button */
+    border-radius: 4px; /* Slightly rounded button corners */
+    font-size: 1rem; /* Button text size equal to base size */
+    cursor: pointer; /* Pointer cursor on hover for clickability */
 }
 
-    .primary-button:hover {
-        background-color: var(--accent-soft);
+    .primary-button:hover { /* Hover state for the primary button */
+        background-color: var(--accent-soft); /* Darkens/changes button color on hover */
     }
 
 /* Side nav (left drawer) */
 
-.side-nav {
-    position: fixed;
-    top: 0;
-    left: -240px;
-    width: 220px;
-    height: 100vh;
-    background-color: var(--bg);
-    padding-top: 4rem;
-    box-shadow: 2px 0 6px rgba(0, 0, 0, 0.6);
-    transition: left 0.25s ease;
-    z-index: 1000;
+.side-nav { /* Sliding side navigation menu */
+    position: fixed; /* Fixed position so it stays in place on scroll */
+    top: 0; /* Aligns with top of the viewport */
+    left: -240px; /* Moves it off-screen to the left initially */
+    width: 220px; /* Width of the side navigation panel */
+    height: 100vh; /* Full viewport height for the drawer */
+    background-color: var(--bg); /* Background color matching page theme */
+    padding-top: 4rem; /* Space at the top inside the nav (below header) */
+    box-shadow: 2px 0 6px rgba(0, 0, 0, 0.6); /* Adds shadow on right edge for depth */
+    transition: left 0.25s ease; /* Smooth slide-in/out animation using left property */
+    z-index: 1000; /* Places side nav above most other elements */
 }
 
-    .side-nav a {
-        display: block;
-        padding: 0.75rem 1.25rem;
-        color: var(--black);
-        text-decoration: none;
-        font-size: 0.95rem;
+    .side-nav a { /* Individual links inside the side nav */
+        display: block; /* Each link takes the full width of the drawer */
+        padding: 0.75rem 1.25rem; /* Vertical and horizontal padding around link text */
+        color: var(--black); /* Side nav link text color */
+        text-decoration: none; /* Removes link underlines */
+        font-size: 0.95rem; /* Slightly smaller than base font size */
     }
 
-        .side-nav a:hover {
-            background-color: var(--surface);
+        .side-nav a:hover { /* Hover state for side nav links */
+            background-color: var(--surface); /* Highlights link background on hover */
         }
 
     /* When open, slide in */
 
-    .side-nav.open {
-        left: 0;
+    .side-nav.open { /* Side nav when “open” class is added via JS */
+        left: 0; /* Moves drawer into view from the left edge */
     }
 
 
-.about {
-    white-space: pre-line; /* keep your blank lines & wraps text */
-    text-align: center;
-    letter-spacing: 1px;
-    /* or: white-space: pre-wrap;  // keeps all spaces too */
+.about { /* Styles for about-page text block */
+    white-space: pre-line; /* keep your blank lines & wraps text */ /* Preserves line breaks in text */
+    text-align: center; /* Centers about text horizontally */
+    letter-spacing: 1px; /* Slight extra spacing between letters */
+    /* or: white-space: pre-wrap;  // keeps all spaces too */ /* Alternative setting commented out */
 }
 
-/* Responsive */
+/* Responsive */ /* Section for responsive (small screen) styles */
 
-@media (max-width: 768px) {
-    .top-nav {
-        display: none;
+@media (max-width: 768px) { /* Rules that apply when viewport width ≤ 768px */
+    .top-nav { /* Top navigation bar on small screens */
+        display: none; /* Hides the horizontal nav (use hamburger instead) */
     }
 
-    .content {
-        margin-top: 1rem;
+    .content { /* Main content area on small screens */
+        margin-top: 1rem; /* Reduces top margin so content is closer to header */
     }
 
-    .top-bar .hamburger span {
-        background-color: #000000 !important;
+    .top-bar .hamburger span { /* Hamburger lines specifically at small sizes */
+        background-color: #000000 !important; /* Forces black color, overriding other styles */
     }
 
     /* New: bigger text and controls on mobile */
-    .logo {
-        font-size: 2.2rem;
+    .logo { /* Logo text on small screens */
+        font-size: 2.2rem; /* Slightly smaller than desktop logo for fit */
     }
 
-    .side-nav a {
-        font-size: 1.1rem;
+    .side-nav a { /* Side nav links on small screens */
+        font-size: 1.1rem; /* Larger text for easier tapping/reading */
     }
 
-    .post h1 {
-        font-size: 2rem; /* 36px with 18px base */
+    .post h1 { /* Post heading on small screens */
+        font-size: 2rem; /* 36px with 18px base */ /* Scales heading to 2 × base size */
     }
 
-    .primary-button {
-        font-size: 1.1rem;
-        padding: 1rem 2rem;
+    .primary-button { /* Primary button on small screens */
+        font-size: 1.1rem; /* Slightly larger button text */
+        padding: 1rem 2rem; /* Larger clickable area around button text */
     }
 }
-
