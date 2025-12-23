@@ -191,9 +191,6 @@ body {
         display: none;
     }
 
-    .hamburger {
-        display: flex;
-    }
 
     .content {
         margin-top: 1rem;
