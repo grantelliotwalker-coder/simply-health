@@ -198,44 +198,64 @@ body { /* Body of the page (all visible content) */
 
 /* Responsive */ /* Section for responsive (small screen) styles */
 
-@media (max-width: 768px) { /* Rules that apply when viewport width ≤ 768px */
-    .top-nav { /* Top navigation bar on small screens */
-        display: none; /* Hides the horizontal nav (use hamburger instead) */
+/* Responsive */
+@media (max-width: 768px) {
+
+    /* hide desktop nav on mobile */
+    .top-nav {
+        display: none;
     }
 
-    .content { /* Main content area on small screens */
-        margin-top: 1rem; /* Reduces top margin so content is closer to header */
-    }
-
-    .top-bar .hamburger span { /* Hamburger lines specifically at small sizes */
-        background-color: #000000 !important; /* Forces black color, overriding other styles */
+    /* tighter header on mobile */
+    .top-bar {
         padding-top: 1.5rem;
         padding-bottom: 0.75rem;
+        align-items: center; /* keep everything vertically centered */
     }
 
-    .hamburger {
-        width: 24px; /* a bit narrower */
-        height: 18px; /* keeps the three lines tight */
-        margin: 0; /* no extra vertical offset */
-    }
-
-    /* New: bigger text and controls on mobile */
-    .logo { /* Logo text on small screens */
-        font-size: 2.1rem; /* Slightly smaller than desktop logo for fit */
-        white-space: nowrap; /* keep SIMPLY HEALTH on one line */
+    /* keep logo on one line and a bit smaller */
+    .logo {
+        font-size: 2rem; /* smaller so it fits */
+        white-space: nowrap; /* don't wrap SIMPLY HEALTH */
         margin-right: 1rem; /* gap before hamburger */
     }
 
-    .side-nav a { /* Side nav links on small screens */
-        font-size: 1.1rem; /* Larger text for easier tapping/reading */
+    /* compact hamburger so it can't stretch */
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center; /* center the three lines */
+        width: 24px;
+        height: 18px; /* fixed small height */
+        background: none;
+        border: none;
+        padding: 0;
+        margin: 0;
     }
 
-    .post h1 { /* Post heading on small screens */
-        font-size: 2rem; /* 36px with 18px base */ /* Scales heading to 2 × base size */
+    .top-bar .hamburger span {
+        width: 100%;
+        height: 3px;
+        background-color: #000000 !important;
+        border-radius: 2px;
     }
 
-    .primary-button { /* Primary button on small screens */
-        font-size: 1.1rem; /* Slightly larger button text */
-        padding: 1rem 2rem; /* Larger clickable area around button text */
+    .content {
+        margin-top: 1rem;
+    }
+
+    .side-nav a {
+        font-size: 1.1rem;
+    }
+
+    .post h1 {
+        font-size: 2rem;
+    }
+
+    .primary-button {
+        font-size: 1.1rem;
+        padding: 1rem 2rem;
     }
 }
+
