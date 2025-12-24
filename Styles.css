@@ -33,7 +33,7 @@ body { /* Body of the page (all visible content) */
 
 .top-bar { /* Container for logo, nav links, and hamburger */
     display: flex; /* Uses flexbox to lay out children horizontally */
-    align-items: flex-end; /* Aligns items to the bottom of the top bar */
+    align-items: center; /*  */
     justify-content: space-between; /* Pushes logo left and hamburger/nav right */
     padding-top: 5rem; /* big space at the top */ /* Large top padding to drop header down */
     padding-right: 1.5rem; /* Right padding inside the bar */
