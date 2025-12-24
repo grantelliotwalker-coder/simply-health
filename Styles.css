@@ -59,6 +59,7 @@ body { /* Body of the page (all visible content) */
     font-weight: bold; /* Makes logo text bold */
     color: var(--logo); /* Uses logo color variable (black) */
     text-decoration: none; /* Removes underline from the logo link */
+    margin-right: 1rem; /* NEW: gap between logo and nav/hamburger */
 }
 
 .top-nav a { /* Styles for each top navigation link */
