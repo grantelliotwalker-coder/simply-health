@@ -9,19 +9,19 @@
 
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
-    <!-- Makes layout match the device width and start at normal zoom,
-         so your CSS (including 18px base font) looks correct on phones [web:5][web:61] -->
+    <!-- Make layout match the device width and start at normal zoom
+         so your CSS (including 18px base font) looks correct on phones -->
 
-    <title>My Blog - Home</title>        <!-- Text shown in the browser tab [web:83][web:99] -->
+    <title>My Blog - Home</title>        <!-- Text shown in the browser tab -->
     <!-- Main stylesheet with all your layout, colours, and typography
-         (classes like .top-bar, .logo, .content, .post, .about, .primary-button). [web:84][web:97] -->
+         (classes like .top-bar, .logo, .content, .post, .about, .primary-button). -->
     <link rel="stylesheet" href="Styles.css" />
 
-    <!-- Google Font: Open Sans (weights 400, 600, 700) for body text. [web:83][web:86] -->
+    <!-- Google Font: Open Sans (weights 400, 600, 700) for body text. -->
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" />
 
-    <!-- Google Fonts: Open Sans + Roboto 500 (used for the logo text via .logo). [web:83][web:86] -->
+    <!-- Google Fonts: Open Sans + Roboto 500 (used for the logo text via .logo). -->
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500&display=swap" />
 </head>
@@ -77,3 +77,42 @@
                     I'd love to hear from you!
                     Please reach out via email to ...@gmail.com
                 </p>
+            </div>
+
+            <!-- Call‑to‑action button back to the home page.
+                 .primary-button controls colours, padding, hover effect. -->
+            <p>
+                <a class="primary-button" href="index.html">View Home</a>
+            </p>
+        </section>
+    </main>
+
+    <!-- ===== JavaScript to control hamburger and side nav ===== -->
+
+    <script>
+        const hamburger = document.getElementById('hamburger'); // Hamburger button element
+        const sideNav = document.getElementById('sideNav');     // Side navigation drawer
+
+        // When the hamburger is clicked, open/close the side nav
+        hamburger.addEventListener('click', (event) => {
+            event.stopPropagation();               // Keep the click from immediately closing it
+            sideNav.classList.toggle('open');      // Toggle .open so CSS slides it in/out
+        });
+
+        // Clicking the blank area of the side nav closes it, but links still work
+        sideNav.addEventListener('click', (event) => {
+            // Only close when the click is directly on the <aside>, not on a link
+            if (event.target === sideNav) {
+                sideNav.classList.remove('open');
+            }
+            event.stopPropagation();               // Prevent bubbling to document click handler
+        });
+
+        // Click anywhere else on the page to close the side nav
+        document.addEventListener('click', () => {
+            sideNav.classList.remove('open');      // Remove .open so CSS hides the drawer again
+        });
+    </script>
+
+</body>
+</html>
