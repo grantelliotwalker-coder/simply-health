@@ -79,27 +79,28 @@ body { /* Body of the page (all visible content) */
 
 /* Hamburger button (for small screens) */
 
-.hamburger { /* Button that shows three lines on mobile */
-    display: flex; /* Uses flexbox for vertical stacking of spans */
-    flex-direction: column; /* Stacks the three lines vertically */
-    justify-content: space-between; /* Even spacing between the lines */
-    width: 28px; /* Overall width of the hamburger icon */
-    height: 20px; /* Overall height of the hamburger icon */
-    background: none; /* Removes default button background */
-    border: none; /* Removes default button border */
-    padding: 0; /* Removes default button padding */
-    cursor: pointer; /* Shows pointer cursor when hovering */
-    margin-top: 2px; /* tweak up/down until it looks right on phone */
+.hamburger {
+    display: inline-flex; /* shrink-wrap to contents instead of stretching */
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 24px;
+    height: 18px; /* fixed, small height */
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
 }
 
 
-/* the three lines */
-.top-bar .hamburger span { /* Each of the three horizontal lines */
-    display: block; /* Makes span behave like a block element */
-    width: 100%; /* Line stretches to full button width */
-    height: 3px; /* Thickness of each line */
-    background-color: #000000; /* solid black */ /* Line color set to solid black */
-    border-radius: 2px; /* Slight rounding on line corners */
+/* make sure the lines themselves are small */
+.top-bar .hamburger span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #000000;
+    border-radius: 2px;
 }
 
 /* Layout */
